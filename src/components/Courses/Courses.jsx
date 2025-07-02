@@ -3,7 +3,7 @@ import { courses } from '../../data/courses';
 import CourseCard from "../CourseCard/CourseCard"
 export default function WhyChooseUs() {
   return (
-    <section className={styles.Courses}>
+    <section className={styles.Courses}  id="course-section">
       <div className={styles.container}>
         <h2 className={styles.headingText}>Courses Offered</h2>
         <div className={styles.features}>

@@ -12,7 +12,7 @@ export default function Header() {
         </div>
         <div className={styles.navLinks}>
           <a href="/">Home</a>
-          <a href="#course-section">Courses</a>
+          <a href="/#course-section">Courses</a>
           <a href="#about">About</a>
           <a href="/contact">Contact</a>
         </div>

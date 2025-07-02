@@ -1,0 +1,241 @@
+// Main Container
+.contactPage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Hero Section
+.hero {
+  background-color: #f8f9fa;
+  padding: 4rem 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #555;
+  }
+}
+
+// Contact Container
+.contactContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+// Contact Info Card
+.contactInfo {
+  flex: 1;
+  min-width: 300px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #d12127;
+  }
+}
+
+.infoItem {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+
+  .icon {
+    background-color: #d12127;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #d12127;
+  }
+
+  p {
+    margin: 0.3rem 0;
+    line-height: 1.5;
+  }
+}
+
+// Contact Form
+.contactForm {
+  flex: 2;
+  min-width: 300px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+  }
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: border-color 0.3s;
+
+    &:focus {
+      outline: none;
+      border-color: #d12127;
+      box-shadow: 0 0 0 2px rgba(209, 33, 39, 0.2);
+    }
+  }
+
+  textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+  }
+}
+
+.errorInput {
+  border-color: #e74c3c !important;
+}
+
+.error {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  display: block;
+}
+
+.submitButton {
+  background-color: #d12127;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background-color: #9e161b;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+// Success Message
+.successMessage {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+
+  h3 {
+    color: #d12127;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: #555;
+  }
+}
+
+.backButton {
+  background-color: transparent;
+  color: #d12127;
+  border: 1px solid #d12127;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: #f8f9fa;
+  }
+}
+
+// Map Container
+.mapContainer {
+  height: 400px;
+  margin-bottom: 3rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+// Responsive Adjustments
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1rem;
+    
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .contactContainer {
+    flex-direction: column;
+  }
+
+  .contactInfo,
+  .contactForm {
+    width: 100%;
+  }
+}

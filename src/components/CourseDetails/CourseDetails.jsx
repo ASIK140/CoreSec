@@ -47,7 +47,6 @@ export default function CourseDetails() {
 
   return (
     <div className={styles.courseDetails}>
-      {/* ... (keep existing header and hero section) ... */}
       {/* Breadcrumb Navigation */}
       <div className={styles.breadcrumb}>
         <Link to="/">Home</Link> &gt;
@@ -74,7 +73,7 @@ export default function CourseDetails() {
           <div className={styles.metaGrid}>
             <div className={styles.metaItem}>
               <FaRupeeSign className={styles.metaIcon} />
-              <span>₹{course.price.toLocaleString()}</span>
+              <span>{course.price.toLocaleString()}</span>
             </div>
             <div className={styles.metaItem}>
               <FaLanguage className={styles.metaIcon} />
@@ -94,7 +93,6 @@ export default function CourseDetails() {
 
           <div className={styles.actionButtons}>
             <button className={styles.enrollBtn}>Enroll Now</button>
-            <button className={styles.wishlistBtn}>Add to Wishlist</button>
           </div>
         </div>
       </div>
@@ -179,7 +177,6 @@ export default function CourseDetails() {
               />
               <h4>{course.instructor.name}</h4>
               <p className={styles.instructorBio}>{course.instructor.bio}</p>
-              <button className={styles.profileButton}>View Profile</button>
             </div>
           </div>
 
@@ -189,7 +186,7 @@ export default function CourseDetails() {
               <li>🕒 {course.totalHours} hours of content</li>
               <li>📝 {course.assignments} assignments</li>
               <li>🎥 {course.lectures} video lectures</li>
-              <li>📚 Downloadable resources</li>
+              <li>📚 Downloadable resources</li>  
               <li>📜 Certificate of completion</li>
             </ul>
           </div>
