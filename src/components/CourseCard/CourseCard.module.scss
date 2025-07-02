@@ -1,0 +1,161 @@
+.courseCard {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    
+    .courseThumbnail::after {
+      opacity: 1;
+    }
+  }
+}
+
+.courseThumbnail {
+  position: relative;
+  height: 200px;
+  width: 370px;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.courseInfo {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  
+  h3 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+}
+
+.courseMeta {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.live {
+  background-color: #e74c3c;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.language {
+  background-color: #f1c40f;
+  color: #2c3e50;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.coursePrice {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #d12127;
+  margin: 10px 0;
+}
+
+.courseBtn {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  margin-top: auto; // Pushes button to bottom
+  background-color: #292828;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  &:hover {
+    background-color: #d12127;
+  }
+}
+
+// Ribbon for featured courses (optional)
+.featuredRibbon {
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  background-color: #d12127;
+  color: white;
+  padding: 5px 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  transform: rotate(45deg);
+  z-index: 1;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .courseCard {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
+  .courseThumbnail {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .courseThumbnail {
+    height: 160px;
+    width: 300px;
+  }
+  
+  .courseInfo h3 {
+    font-size: 1.1rem;
+  }
+}
