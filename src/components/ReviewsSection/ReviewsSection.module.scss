@@ -1,0 +1,164 @@
+.reviewsSection {
+  padding: 4rem 0;
+  background-color: #f8f9fa;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.ratingSummary {
+  display: inline-flex;
+  background: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.averageRating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ratingNumber {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.stars {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.starFilled {
+  color: #FFC107;
+}
+
+.starEmpty {
+  color: #E0E0E0;
+}
+
+.totalReviews {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-left: 0.8rem;
+}
+
+.reviewsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.navButton {
+  background: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  color: #2c3e50;
+
+  &:hover {
+    background: #d12127;
+    color: white;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  flex-grow: 1;
+}
+
+.dotsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ced4da;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #adb5bd;
+  }
+}
+
+.activeDot {
+  background: #d12127;
+  width: 20px;
+  border-radius: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 1.7rem;
+  }
+
+  .ratingSummary {
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .averageRating {
+    margin-bottom: 0.5rem;
+  }
+
+  .reviewsContainer {
+    gap: 0.5rem;
+  }
+
+  .navButton {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .reviewsSection {
+    padding: 3rem 0;
+  }
+
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+  }
+}

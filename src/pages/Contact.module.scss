@@ -79,6 +79,11 @@
     margin: 0.3rem 0;
     line-height: 1.5;
   }
+  a {
+    font-size: 1.1rem;
+    color: #FFFf;
+    text-decoration: none;
+  }
 }
 
 // Contact Form
@@ -224,7 +229,7 @@
 @media (max-width: 768px) {
   .hero {
     padding: 3rem 1rem;
-    
+
     h1 {
       font-size: 2rem;
     }

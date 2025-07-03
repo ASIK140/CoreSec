@@ -1,14 +1,20 @@
-import { useState } from 'react';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
-import styles from './Contact.module.scss';
+import { useState } from "react";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaPaperPlane,
+  FaWhatsapp
+} from "react-icons/fa";
+import styles from "./Contact.module.scss";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -17,49 +23,49 @@ export default function Contact() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
     // Clear error when user types
     if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
   const validateForm = () => {
     const newErrors = {};
-    
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
+
+    if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Invalid email format';
+      newErrors.email = "Invalid email format";
     }
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
-    
+    if (!formData.message.trim()) newErrors.message = "Message is required";
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
-    
+
     try {
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       setSubmitSuccess(true);
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
       });
     } catch (error) {
-      console.error('Submission error:', error);
+      console.error("Submission error:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -80,18 +86,27 @@ export default function Contact() {
         {/* Contact Info Card */}
         <div className={styles.contactInfo}>
           <h2>Our Contact Information</h2>
-          
+
           <div className={styles.infoItem}>
             <div className={styles.icon}>
               <FaPhone />
             </div>
             <div>
               <h3>Phone</h3>
-              <p>+91 8790653278</p>
-              <p>+91 9876543210</p>
+              <p>+91 8436898284</p>
+              <p>+91 8436042649</p>
             </div>
           </div>
-          
+          <div className={styles.infoItem}>
+            <div className={styles.icon}>
+              <FaWhatsapp />
+            </div>
+            <div>
+              <h3>Chat with Us</h3>
+              <a href="https://wa.me/918436898284" target="_blank">+91 8436898284</a> <br />
+              <a href="https://wa.me/918436042649" target="_blank">+91 8436042649</a>
+            </div>
+          </div>
           <div className={styles.infoItem}>
             <div className={styles.icon}>
               <FaEnvelope />
@@ -102,7 +117,7 @@ export default function Contact() {
               <p>support@coresec.in</p>
             </div>
           </div>
-          
+
           <div className={styles.infoItem}>
             <div className={styles.icon}>
               <FaMapMarkerAlt />
@@ -118,12 +133,15 @@ export default function Contact() {
         {/* Contact Form */}
         <div className={styles.contactForm}>
           <h2>Send Us a Message</h2>
-          
+
           {submitSuccess ? (
             <div className={styles.successMessage}>
               <h3>Thank You!</h3>
-              <p>Your message has been sent successfully. We'll get back to you within 24 hours.</p>
-              <button 
+              <p>
+                Your message has been sent successfully. We'll get back to you
+                within 24 hours.
+              </p>
+              <button
                 onClick={() => setSubmitSuccess(false)}
                 className={styles.backButton}
               >
@@ -140,11 +158,13 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={errors.name ? styles.errorInput : ''}
+                  className={errors.name ? styles.errorInput : ""}
                 />
-                {errors.name && <span className={styles.error}>{errors.name}</span>}
+                {errors.name && (
+                  <span className={styles.error}>{errors.name}</span>
+                )}
               </div>
-              
+
               <div className={styles.formGroup}>
                 <label htmlFor="email">Email Address*</label>
                 <input
@@ -153,11 +173,13 @@ export default function Contact() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={errors.email ? styles.errorInput : ''}
+                  className={errors.email ? styles.errorInput : ""}
                 />
-                {errors.email && <span className={styles.error}>{errors.email}</span>}
+                {errors.email && (
+                  <span className={styles.error}>{errors.email}</span>
+                )}
               </div>
-              
+
               <div className={styles.formGroup}>
                 <label htmlFor="phone">Phone Number</label>
                 <input
@@ -168,7 +190,7 @@ export default function Contact() {
                   onChange={handleChange}
                 />
               </div>
-              
+
               <div className={styles.formGroup}>
                 <label htmlFor="subject">Subject</label>
                 <select
@@ -184,7 +206,7 @@ export default function Contact() {
                   <option value="Feedback">Feedback</option>
                 </select>
               </div>
-              
+
               <div className={styles.formGroup}>
                 <label htmlFor="message">Your Message*</label>
                 <textarea
@@ -193,17 +215,21 @@ export default function Contact() {
                   rows="5"
                   value={formData.message}
                   onChange={handleChange}
-                  className={errors.message ? styles.errorInput : ''}
+                  className={errors.message ? styles.errorInput : ""}
                 ></textarea>
-                {errors.message && <span className={styles.error}>{errors.message}</span>}
+                {errors.message && (
+                  <span className={styles.error}>{errors.message}</span>
+                )}
               </div>
-              
-              <button 
-                type="submit" 
+
+              <button
+                type="submit"
                 className={styles.submitButton}
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : (
+                {isSubmitting ? (
+                  "Sending..."
+                ) : (
                   <>
                     <FaPaperPlane /> Send Message
                   </>

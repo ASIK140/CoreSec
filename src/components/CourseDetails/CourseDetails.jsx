@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { useLocation,useNavigate } from "react-router-dom";
 import {
   FaCheckCircle,
   FaClock,
@@ -10,15 +11,25 @@ import {
 } from "react-icons/fa";
 import { courses } from "../../data/courses";
 import styles from "./CourseDetails.module.scss";
-
 export default function CourseDetails() {
   const { courseId } = useParams();
   const [course, setCourse] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [expandedWeek, setExpandedWeek] = useState(null);
+  const { pathname } = useLocation();
 
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleCourseClick = (e) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: 'course-section' } });
+    }
+  };
   useEffect(() => {
+    window.scrollTo(0, 0);
     const timer = setTimeout(() => {
       try {
         const foundCourse = courses.find((c) => c.id === courseId);
@@ -36,13 +47,13 @@ export default function CourseDetails() {
     }, 800);
 
     return () => clearTimeout(timer);
-  }, [courseId]);
+  }, [courseId, pathname]);
 
   const toggleWeek = (index) => {
     setExpandedWeek(expandedWeek === index ? null : index);
   };
 
-  if (loading) return <div className={styles.loadingContainer}>Loading...</div>;
+  if (loading) return <div className={styles.LoaderContainer}><span className={styles.loader}></span></div>;
   if (error) return <div className={styles.errorContainer}>{error}</div>;
 
   return (
@@ -50,7 +61,7 @@ export default function CourseDetails() {
       {/* Breadcrumb Navigation */}
       <div className={styles.breadcrumb}>
         <Link to="/">Home</Link> &gt;
-        <Link to="/courses">Courses</Link> &gt;
+        <a href="/#course-section" onClick={handleCourseClick}>Courses</a> &gt;
         <span>{course.title}</span>
       </div>
       {/* Course Hero Section */}
@@ -186,19 +197,21 @@ export default function CourseDetails() {
               <li>🕒 {course.totalHours} hours of content</li>
               <li>📝 {course.assignments} assignments</li>
               <li>🎥 {course.lectures} video lectures</li>
-              <li>📚 Downloadable resources</li>  
+              <li>📚 Downloadable resources</li>
               <li>📜 Certificate of completion</li>
             </ul>
           </div>
         </div>
       </div>
       {/* Related Courses Section */}
-      <section className={styles.relatedCourses}>
+      {/* <section className={styles.relatedCourses}>
         <h2>You Might Also Like</h2>
         <div className={styles.relatedGrid}>
-          {/* You would map through related courses here */}
+          {courses.map((course, index) => (
+            <CourseCard key={index} {...course} />
+          ))}
         </div>
-      </section>
+      </section> */}
 
       {/* ... (rest of the component) ... */}
     </div>
