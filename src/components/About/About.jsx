@@ -35,6 +35,7 @@ export default function About() {
 
           <div className={styles.coreValues}>
             <h3>Our Core Values</h3>
+            <hr />
             <ul>
               <li>
                 <FaCheckCircle className={styles.checkIcon} />
